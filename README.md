@@ -2,8 +2,7 @@
 --Runs Ubuntu to install PHP and Apache--
 
 !TO INSTALL!
-|
-\/
+
 -----------------------------------------------------------------------------------------
 1. Download everything into a single folder or use git pull on the link of the repository.
 2. Run docker build -t it610_project .          [it610_project can be another name you seek]
