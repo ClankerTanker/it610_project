@@ -1,3 +1,3 @@
 <?php  
-     echo "<p> Header of Site <p>";  
+     echo "<h> WIP, if you see this it's working! <h>";  
 ?>  
