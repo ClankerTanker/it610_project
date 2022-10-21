@@ -1,23 +1,19 @@
 FROM ubuntu:latest
-
+#Had issue with time zone, using this to skip it.
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
+# Make sure distro is up to date
 RUN apt-get update
 RUN apt-get -y upgrade
 
-
+#Install necessary packages
 RUN apt-get -y install apache2 php php-mysql curl
 RUN apt-get install libapache2-mod-php
-#lynx-cur
 
-# Enable apache mods.
+
+# Enable apache mods, proxy_fcgi is for php.
 RUN a2enmod proxy_fcgi
 RUN a2enmod rewrite
-
-# Update the PHP.ini file, enable <? ?> tags and quieten logging.
-#RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
-#RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
